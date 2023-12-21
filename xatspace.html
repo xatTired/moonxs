@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tired XS</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      opacity: 1;
+      transition: filter 8s ease-in-out;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      filter: opacity(0);
+      pointer-events: none;
+      transition: filter 8s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <img id="background" src="https://xatimg.com/image/QEbpfSMvGS5d.gif" alt="Moon">
+  <div id="overlay"></div>
+
+  <script>
+    var background = document.getElementById("background");
+    var overlay = document.getElementById("overlay");
+
+    background.addEventListener("mouseenter", function() {
+      fadeOut();
+    });
+
+    background.addEventListener("mouseleave", function() {
+      fadeIn();
+    });
+
+    function fadeOut() {
+      overlay.style.filter = "opacity(0.75)";
+    }
+
+    function fadeIn() {
+      overlay.style.filter = "opacity(0)";
+    }
+  </script>
+</body>
+</html>
